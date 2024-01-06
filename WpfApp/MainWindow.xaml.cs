@@ -21,9 +21,26 @@ namespace WpfApp
             InitializeComponent();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void AddTodoButton_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("Hello World!");
+            string todoInput = TodoInput.Text;
+
+            if(!string.IsNullOrEmpty(todoInput))
+            {
+                TextBlock todoItem = new TextBlock {
+                    Text = todoInput,
+                    Margin = new Thickness(10),
+                    Foreground = new SolidColorBrush(Colors.Black)
+                };
+                TodoList.Children.Add(todoItem);
+                TodoInput.Clear();
+            }
+        }
+
+        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+
         }
     }
 }
